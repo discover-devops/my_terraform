@@ -1,1 +1,118 @@
 
+Lab#1 : Terraform code to deploy a VPC in AWS:
+
+*****************
+
+>>>>>>>>>>>>>>>
+
+provider "aws" {
+  region = "us-east-1"  # Specify the desired AWS region
+}
+
+resource "aws_vpc" "my_vpc" {
+  cidr_block = "10.0.0.0/16"  # Specify the desired CIDR block for the VPC
+
+  tags = {
+    Name = "MyVPC"  # Provide a name for the VPC
+  }
+}
+
+resource "aws_subnet" "my_subnet" {
+  vpc_id                  = aws_vpc.my_vpc.id
+  cidr_block              = "10.0.0.0/24"  # Specify the desired CIDR block for the subnet
+  availability_zone       = "us-east-1a"  # Specify the desired availability zone
+
+  tags = {
+    Name = "MySubnet"  # Provide a name for the subnet
+  }
+}
+
+resource "aws_internet_gateway" "my_igw" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  tags = {
+    Name = "MyIGW"  # Provide a name for the internet gateway
+  }
+}
+
+resource "aws_route_table" "my_route_table" {
+  vpc_id = aws_vpc.my_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.my_igw.id
+  }
+
+  tags = {
+    Name = "MyRouteTable"  # Provide a name for the route table
+  }
+}
+
+resource "aws_route_table_association" "my_route_table_association" {
+  subnet_id      = aws_subnet.my_subnet.id
+  route_table_id = aws_route_table.my_route_table.id
+}
+
+<<<<<<<<<<<<<<<<<<
+
+
+In this example, we're using the AWS provider and creating the following resources:
+
+aws_vpc: Creates a VPC with the specified CIDR block.
+aws_subnet: Creates a subnet within the VPC with the specified CIDR block and availability zone.
+aws_internet_gateway: Creates an internet gateway and attaches it to the VPC.
+aws_route_table: Creates a route table for the VPC and adds a route to the internet gateway.
+aws_route_table_association: Associates the subnet with the route table.
+
+Make sure to replace the desired values for region, CIDR blocks, availability zones, and names according to your requirements. 
+You'll also need to configure your AWS credentials before running this Terraform code.
+
+****************************
+
+Lab2: Terraform code to deploy a VPC, subnet, and an EC2 instance in AWS:
+
+>>>>>>>>>>>>>>>>
+
+provider "aws" {
+  region = "us-east-1"  # Specify the desired AWS region
+}
+
+resource "aws_vpc" "my_vpc" {
+  cidr_block = "10.0.0.0/16"  # Specify the desired CIDR block for the VPC
+
+  tags = {
+    Name = "MyVPC"  # Provide a name for the VPC
+  }
+}
+
+resource "aws_subnet" "my_subnet" {
+  vpc_id                  = aws_vpc.my_vpc.id
+  cidr_block              = "10.0.0.0/24"  # Specify the desired CIDR block for the subnet
+  availability_zone       = "us-east-1a"  # Specify the desired availability zone
+
+  tags = {
+    Name = "MySubnet"  # Provide a name for the subnet
+  }
+}
+
+resource "aws_instance" "my_ec2_instance" {
+  ami           = "ami-0c94855ba95c71c99"  # Specify the desired AMI ID
+  instance_type = "t2.micro"  # Specify the desired instance type
+  subnet_id     = aws_subnet.my_subnet.id
+  key_name      = "my_key_pair"  # Specify the name of your key pair
+
+  tags = {
+    Name = "MyEC2Instance"  # Provide a name for the EC2 instance
+  }
+}
+
+<<<<<<<<<<<<<<<
+
+In this example, we're using the AWS provider and creating the following resources:
+
+aws_vpc: Creates a VPC with the specified CIDR block.
+aws_subnet: Creates a subnet within the VPC with the specified CIDR block and availability zone.
+aws_instance: Launches an EC2 instance in the specified subnet, using the specified AMI, instance type, and key pair.
+
+Make sure to replace the desired values for region, CIDR blocks, availability zones, AMI ID, instance type, key pair name, 
+and names according to your requirements. Don't forget to configure your AWS credentials before running this Terraform code.
