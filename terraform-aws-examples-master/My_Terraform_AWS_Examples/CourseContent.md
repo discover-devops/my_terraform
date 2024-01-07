@@ -108,7 +108,8 @@ HashiCorp Configuration Language (HCL) is a simple, human-readable language used
 ## Create and Use a Local Module - Encapsulating the Networking Configurations
 ```
 
-[Copy and paste this content into your GitHub page or markdown file, and it should render appropriately.](https://developer.hashicorp.com/terraform/docs/glossary
+Links:
+https://developer.hashicorp.com/terraform/docs/glossary
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#argument-reference
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#attributes-reference
