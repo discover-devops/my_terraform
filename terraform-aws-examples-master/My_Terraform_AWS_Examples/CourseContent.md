@@ -109,3 +109,4 @@ HashiCorp Configuration Language (HCL) is a simple, human-readable language used
 ## Create and Use a Local Module - Encapsulating the Networking Configurations
 ```
 
+Copy and paste this content into your GitHub page or markdown file, and it should render appropriately.
