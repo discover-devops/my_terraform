@@ -1,5 +1,4 @@
 
-```markdown
 # Terraform Introduction
 
 ## What is Infrastructure as Code (IaC)?
