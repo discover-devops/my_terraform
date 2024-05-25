@@ -1,4 +1,4 @@
-Sure, here is the Terraform code split into two parts: one for creating the Terraform provider block and the other for creating the EC2 instance.
+Here is the Terraform code split into two parts: one for creating the Terraform provider block and the other for creating the EC2 instance.
 
 ### Part 1: Create Terraform Provider Block
 
