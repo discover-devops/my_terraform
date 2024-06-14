@@ -1,4 +1,7 @@
-Certainly! Let's create a step-by-step document to teach about Terraform variables, their use cases, and how to use them in a project to create a VPC, subnets, a security group, and an EC2 instance.
+Step-by-step document:
+Terraform variables, 
+use cases, and
+And a example.
 
 ### Step-by-Step Document
 
