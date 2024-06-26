@@ -324,20 +324,18 @@ module "vpc" {
 module "subnet" {
   source = "./modules/subnet"
 
-  vpc_id               = module.vpc.vpc_id
-  public_subnet_cidr   = "10.0.1.0/24"
-  private_subnet_cidr  = "10.0.2.0/24"
-  availability_zone    = "ap-south-1a"
-  public_subnet_name   = "public-subnet"
-  private_subnet_name  = "private-subnet"
-  internet_gateway_name = "main-gateway"
+  vpc_id                 = module.vpc.vpc_id
+  public_subnet_cidr     = "10.0.1.0/24"
+  private_subnet_cidr    = "10.0.2.0/24"
+  availability_zone      = "ap-south-1a"
+  public_subnet_name     = "public-subnet"
+  private_subnet_name    = "private-subnet"
+  internet_gateway_name  = "main-gateway"
   public_route_table_name = "public-route-table"
 }
 
 resource "aws_security_group" "web_sg" {
-  vpc_id = module.vpc.v
-
-pc_id
+  vpc_id      = module.vpc.vpc_id
   description = "Allow HTTP and SSH traffic"
 
   ingress {
@@ -375,6 +373,7 @@ module "ec2" {
   key_name          = "my-key-pair"  # Ensure this key pair exists in your AWS account
   security_group_id = aws_security_group.web_sg.id
 }
+
 ```
 
 #### Step 8: Initialize and Apply the Configuration
