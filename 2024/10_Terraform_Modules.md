@@ -168,7 +168,7 @@ output "subnet_id" {
 
 ## MODULE: EC2
 
-### 📄 `modules/ec2/variables.tf`
+###  `modules/ec2/variables.tf`
 
 ```hcl
 variable "ami_id" {}
